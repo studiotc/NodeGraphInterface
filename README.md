@@ -68,7 +68,7 @@ There may be a rare case that you find you need an OperationInput to accept an E
 ### Multiple Outputs to an SCADOutput ###
 If you have a case where you want to run multiple Outputs to your OpenSCAD file, i.e.: Declaring global variables before modeling operations, MergeBlock was designed just for this purpose (Node Menu->Utilities).  It can also be used in the same manner inside loops (For) or other operations (transforms, etc.).
 
-## Additioanl Documentation ##
+## Additional Documentation ##
 
 Please refer to the accompaning javadocs for  additional documentation.
 
