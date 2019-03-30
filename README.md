@@ -1,5 +1,8 @@
 #Node Graph for OpenSCAD.
 
+![UI Image](/images/NodeGraphInterfaceUI.png)
+![Output Image](/images/NodeGraphOutput.png)
+
 ##A Node Graph interface for OpenSCAD
 
 The Node Graph allows the user to place and connect nodes that represent parts of the OpenSCAD language.  In essence, this program acts as a GUI overlay to the OpenSCAD Language.  Nodes can represent anything from atomic values (numbers, variable names, math operators, etc.) to modeling and transformation statements (Sphere, Union, Translate, Rotate, etc.).   
