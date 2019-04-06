@@ -3,10 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Tom/Documents/NetBeansProjects/NodeGraphInterface/src/org/ngi/NodeGraph.java</file>
-            <file>file:/C:/Users/Tom/Documents/NetBeansProjects/NodeGraphInterface/src/org/ngi/menus/MenuSystem.java</file>
-            <file>file:/C:/Users/Tom/Documents/NetBeansProjects/NodeGraphInterface/src/org/ngi/menus/actions/file/FileMenuSaveAsAction.java</file>
-            <file>file:/C:/Users/Tom/Documents/NetBeansProjects/NodeGraphInterface/src/org/ngi/FileHandler.java</file>
+            <file>file:/C:/Users/Tom/source/repos/NodeGraphInterface/src/org/ngi/StaticValueDialog.java</file>
+            <file>file:/C:/Users/Tom/source/repos/NodeGraphInterface/src/org/ngi/NodeGraph.java</file>
         </group>
     </open-files>
 </project-private>

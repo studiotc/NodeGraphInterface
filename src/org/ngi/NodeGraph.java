@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.geom.Point2D;
@@ -507,6 +508,8 @@ public class NodeGraph extends JPanel implements MouseListener, MouseMotionListe
             //if actually dragging object
             if(_is != InteractionState.NEUTRAL) {
                 automaticPanSet(e);
+            } else {
+                automaticPanClear();
             }
             //left mouse dragged event
             leftMouseDragged();
@@ -1067,11 +1070,28 @@ public class NodeGraph extends JPanel implements MouseListener, MouseMotionListe
         } else {
 
             String cval = input.getStaticValue();
-            String title = "Set Static Value :: " + input.getName();
-            String prompt = "Description:\n" + input.getDescription() + "\nValue = " + cval + ", New Value:";
+            Node parent = input.getParent();
+            String nodeName = parent.getName();
+            String nodeType = parent.getClass().getSimpleName();
+            String title = "Set Static Value: " + nodeName + " [" + nodeType + "]" + " :: " + input.getName();
+            String desc = input.getDescription();
 
-            //show dialog
-            result = JOptionPane.showInputDialog(this, prompt, title, JOptionPane.PLAIN_MESSAGE);
+            
+            StaticValueDialog svd = new StaticValueDialog(_ownerFrame);
+            //use mouse position so user doesn't have to move far...
+            Point p = MouseInfo.getPointerInfo().getLocation();
+            svd.setLocation(p);
+            
+            //show the dialog
+            svd.showDialog(title, desc, cval);
+            
+            if(svd.getDialogOk()) {
+                result = svd.getDialogResult();
+            }
+            
+            //should go out of scope, but anyways...
+            svd.dispose();
+            
 
         }
 
@@ -1099,12 +1119,17 @@ public class NodeGraph extends JPanel implements MouseListener, MouseMotionListe
     public void duplicateNode(Node n) {
 
         try {
+            
             ByteArrayOutputStream bytearrayOutStream = new ByteArrayOutputStream();
             ObjectOutputStream objOutStream = new ObjectOutputStream(bytearrayOutStream);
+            
+            //write the object to stream
             objOutStream.writeObject(n);
             objOutStream.flush();
             objOutStream.close();
             bytearrayOutStream.close();
+            
+            //transfer to array
             byte[] nodeData = bytearrayOutStream.toByteArray();
 
             ByteArrayInputStream baInStream = new ByteArrayInputStream(nodeData);
